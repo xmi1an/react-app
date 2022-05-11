@@ -1,24 +1,20 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
-import User from "./User";
+// import Student from "./includes/Student";
+// import User from "./User";
+
+// Get Data From input Field
 function App() {
+  const [students, setStudents] = useState(null);
+  function getData(val) {
+    setStudents(val.target.value);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <User />
-      </header>
+      <h1>Student List</h1>
+      <h1> {students} </h1>
+      <input type="text" onChange={getData} />
     </div>
   );
 }
